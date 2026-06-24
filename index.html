@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visitor counter</title>
+</head>
+<body>
+    <h1>my Azure visitor counter</h1>
+    <p>this page has been visited <span id="count">...</span> times</p>
+
+    <script>
+        fetch('/api/counter')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('count').textContent = data.count;
+            });
+    </script>
+</body>
+</html>
